@@ -11,9 +11,10 @@ exports.add = function(req,res,next){
             console.log(err)
             return next(err)
         } else {
-            res.json('Yes')
+            res.sendStatus(200)
         }
     })
+
 }
 
 exports.find = function(req,res,next){

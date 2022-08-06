@@ -6,6 +6,10 @@ router.get('/', (req,res,next) => {
     res.json('hello')
 })
 
+router.get('/favicon.ico', (rqe,res,next) => {
+    res.json('hello')
+})
+
 router.get('/find', tellController.find)
 
 router.post('/post', tellController.add)
