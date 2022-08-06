@@ -6,15 +6,28 @@ const Message = () => {
     const handleChange = (e) => {
         setMessage(e.target.value)
     }
-    const handleSubmit = (e) => {
+    async function handleSubmit(e){
         e.preventDefault()
-        setMessage('')
         //Send to backend
         //Store data
+        const body = {message: message}
 
-        (async() => {
-            const result = await fetch()
-        })()
+        try{
+        
+                const result = await fetch('https://tellonymapu.herokuapp.com/post', {
+                    mode: 'cors',
+                    method: 'POST',
+                    headers: {"Content-Type": "application/json" },
+                    body: JSON.stringify({message: message})
+                })
+                setMessage('')
+                const data = await result.json()
+                console.log(data)
+        } catch(err){
+            console.log(err)
+            return('help')
+        }
+        
     }
 
     return(
