@@ -13,7 +13,6 @@ const Message = () => {
         const body = {message: message}
 
         try{
-        
                 const result = await fetch('https://tellonymapu.herokuapp.com/post', {
                     mode: 'cors',
                     method: 'POST',
@@ -31,15 +30,16 @@ const Message = () => {
     }
 
     return(
-        <form>
+        <form className='form'>
             <input
             type='text'
             value={message}
             onChange={handleChange}
             placeholder='Send a message!'
+            className="input"
             required
             />
-            <button onClick={handleSubmit}>Submit</button>
+            <button onClick={handleSubmit} className='button'>Submit</button>
         </form>
     )
 }
